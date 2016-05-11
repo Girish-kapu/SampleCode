@@ -1,0 +1,40 @@
+<style>
+    table
+    {
+      border-collapse: collapse;
+    }
+
+    table, th, td
+    {
+      border: 1px solid #e1e1e1;
+    }
+
+    th, td
+    {
+      padding: 6px;
+    }
+
+    thead
+    {
+      background-color: #fcfcfc;
+    }
+</style>
+<div ng-controller="repeaterController">
+	<table>
+      	<thead>
+        	<tr>
+        		<th><input type="checkbox" ng-model="action" ng-click="checkSelection(action)"></th>
+          		<th ng-repeat="item in headers">{{item}}</th>
+        	</tr>
+      	</thead>
+      	<tbody>
+        	<tr ng-repeat="item in data">
+        		<td><input type="checkbox" ng-model="item.action" ng-click="indiviualSelection(false,item)"></td>
+	          	<td>{{item.name}}</td>
+	          	<td>{{item.age}}</td>
+	          	<td>{{item.gender == 'M' ? 'Male' : 'Female'}}</td>
+	          	<td>{{item.isSenior == true ? 'Yes' : 'No'}}</td>
+        	</tr>
+      	</tbody>
+    </table>
+</div>

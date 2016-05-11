@@ -1,0 +1,19 @@
+<div ng-controller="directivesController">
+<h3>Base scope</h3>
+    <label>First name: <input type="text" ng-model="firstName"/></label><br />
+    <label>Last name: <input type="text" ng-model="lastName"/></label><br />
+    <br />
+    <strong>First name:</strong> {{firstName}}<br />
+    <strong>Last name:</strong> {{lastName}}<br />
+    <br />
+    <h3>Shared, scope = false</h3>
+    <shared-scope></shared-scope>
+    <br />
+    <h3>inherited, scope = true</h3>
+    <inherited-scope></inherited-scope>
+    <br />
+    <h3>isolated scope</h3>
+    <isolated-scope dir-first-name="{{firstName}}"
+         dir-last-name="lastName"
+         dir-update-name-method="updateName(newFirstName, newLastName)"></isolated-scope>
+</div>

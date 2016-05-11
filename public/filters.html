@@ -1,0 +1,64 @@
+<style>
+    table
+    {
+      border-collapse: collapse;
+    }
+
+    table, th, td
+    {
+      border: 1px solid #e1e1e1;
+    }
+
+    th, td
+    {
+      padding: 6px;
+    }
+
+    thead
+    {
+      background-color: #fcfcfc;
+    }
+</style>
+<div ng-controller="filtersController">
+	<h3>Simple substring filter</h3>
+    <label>Filter: <input type="text" ng-model="allColumnsFilter" /></label><br />
+    <br/>
+    <h3>Name & Age filtering</h3>
+    <label>Name: <input type="text" ng-model="nameFilter" /></label><br />
+    <label>Age: <input type="text" ng-model="ageFilter" /></label><br />
+    <br/>
+	<table>
+      	<thead>
+        	<tr>
+          		<th ng-repeat="item in headers">{{item}}</th>
+        	</tr>
+      	</thead>
+      	<tbody>
+        	<tr ng-repeat="item in data | filter:allColumnsFilter | filter:{name: nameFilter, age: ageFilter}">
+	          	<td>{{item.name}}</td>
+	          	<td>{{item.age}}</td>
+	          	<td>{{item.gender}}</td>
+        	</tr>
+      	</tbody>
+    </table>
+    <br /><br />
+    <h3>Simple substring filter with generation of count</h3>
+    <label>Filter: <input type="text" ng-model="allCountFilter" /></label><br />
+    <br/>
+	<table>
+      	<thead>
+        	<tr>
+          		<th ng-repeat="item in headers">{{item}}</th>
+        	</tr>
+      	</thead>
+      	<tbody>
+        	<tr ng-repeat="item in arrayCount = (data | filter:allCountFilter)">
+	          	<td>{{item.name}}</td>
+	          	<td>{{item.age}}</td>
+	          	<td>{{item.gender}}</td>
+        	</tr>
+      	</tbody>
+    </table>
+    <br/>
+    <strong>Number of filtered people: </strong>{{arrayCount.length}}<br />
+</div>

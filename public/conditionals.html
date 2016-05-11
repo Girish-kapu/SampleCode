@@ -1,0 +1,25 @@
+<div ng-controller="conditionsController">
+	<h3>1. Show = {{mustShow}}</h3>
+  	<label>Show the square: <input type="checkbox" ng-model="mustShow" /></label><br />
+  	<div ng-show="mustShow" style="width: 5px; height: 5px; background-color: red;"></div><br />
+  	<br />
+  	<h3>2. Hide = {{mustHide}}</h3>
+  	<label>Hide the square: <input type="checkbox" ng-model="mustHide" /></label><br />
+  	<div ng-hide="mustHide" style="width: 5px; height: 5px; background-color: green;"></div>
+  	<br /><br />
+  	<h3>Switch condition</h3><br />
+  	<label>Type the number you want to show (1 to 5): <input type="text" ng-model="showNumber" /></label>
+  	<br />
+	<div ng-switch="showNumber">
+	    <div ng-switch-when="1" style="width: 50px; background-color: red; text-align: center;">1</div>
+	    <div ng-switch-when="2" style="width: 50px; background-color: green; text-align: center;">2</div>
+	    <div ng-switch-when="3" style="width: 50px; background-color: yellow; text-align: center;">3</div>
+	    <div ng-switch-when="4" style="width: 50px; background-color: fuchsia; text-align: center;">4</div>
+	    <div ng-switch-when="5" style="width: 50px; background-color: orange; text-align: center;">5</div>
+	    <div ng-switch-default style="width: 50px; background-color: lightgray; text-align: center;">None</div>
+	</div>
+	<br /><br />
+  	<label>Show the square: <input type="checkbox" ng-model="mustShow" /></label><br />
+  	<div ng-if="mustShow" style="width: 50px; height: 50px; background-color: red;"></div>
+  	<div ng-if="!mustShow" style="width: 100px; background-color: lightgray; text-align: center;">Not shown</div>
+</div>

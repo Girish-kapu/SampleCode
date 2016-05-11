@@ -1,0 +1,20 @@
+<div ng-controller="incudeController">
+	<label>Type something: <input type="text" ng-model="inputVar" /></label><br />
+  	<br />
+  	<h3>1. Simple include</h3>
+  	<div ng-include="'fragment1.html'"></div>
+  	<br />
+  	<h3>2. Conditional include</h3>
+  	<label>Include fragment 2: <input type="checkbox" ng-model="includeFrag2" /></label>
+  	<div ng-include="includeFrag2 ? 'fragment2.html' : 'fragment1.html'"></div>
+</div>
+<script type="text/ng-template" id="fragment1.html">
+	<div style="background-color: #fcfcfc; border: 1px solid #e1e1e1; text-align: center; width: 200px;">
+  		Fragment 1: {{$parent.inputVar}}
+	</div>
+</script>
+<script type="text/ng-template" id="fragment2.html">
+	<div style="background-color: #fcfcfc; border: 1px solid #e1e1e1; text-align: center; width: 200px;">
+  		Fragment 2: {{$parent.inputVar}}
+	</div>
+</script>
